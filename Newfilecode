@@ -1,0 +1,41 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+// Function prototype
+string alternateMergeStrings(const string &firstString, const string &secondString);
+
+int main() {
+    string firstString = "Bhima";
+    string secondString = "ABCDEOLM";
+
+    string result = alternateMergeStrings(firstString, secondString);
+
+    cout << "Result: " << result << endl;
+
+    return 0;
+}
+
+// Function definition
+string alternateMergeStrings(const string &firstString, const string &secondString) {
+    string mergedString = "";
+    int i = 0, j = 0;
+
+    // Alternate merge
+    while (i < firstString.length() && j < secondString.length()) {
+        mergedString += firstString[i++];
+        mergedString += secondString[j++];
+    }
+
+    // Append remaining characters from first string
+    while (i < firstString.length()) {
+        mergedString += firstString[i++];
+    }
+
+    // Append remaining characters from second string
+    while (j < secondString.length()) {
+        mergedString += secondString[j++];
+    }
+
+    return mergedString;
+}
